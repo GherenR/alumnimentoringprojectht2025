@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { 
   Users, Search, MessageCircle, ArrowRight, ChevronRight, 
   ChevronLeft, Sparkles, Database, Share2, Bell, 
-  HelpCircle, Calendar, Award, ExternalLink 
+  HelpCircle, Calendar, Award, ExternalLink, Info, Heart 
 } from 'lucide-react';
 import { MOCK_MENTORS, FORMS_URL } from './constants';
 import { SlideData } from './types';
@@ -22,6 +22,80 @@ const App: React.FC = () => {
 
   const slides: SlideData[] = [
     {
+      id: 'intro',
+      title: "ALUMNI MENTORSHIP PROJECT",
+      subtitle: "INITIATIVE OVERVIEW",
+      content: (
+        <div className="space-y-6 animate-fade-in px-4">
+          {/* Presented By Section */}
+          <div className="text-center mb-6">
+            <span className="text-xs font-bold tracking-[0.3em] text-slate-400 uppercase">Presented by</span>
+            <h3 className="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 tracking-tight mt-1">
+              HANG TUAH 2025
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+              {/* Card 1: Definition */}
+              <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-xl transition-all relative overflow-hidden group">
+                 <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-[2rem] -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                 <div className="relative z-10">
+                   <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                      <Info size={24} />
+                   </div>
+                   <h4 className="font-bold text-lg text-slate-900 mb-2">Apa itu AMP?</h4>
+                   <p className="text-slate-500 text-sm leading-relaxed">
+                     Sebuah wadah penghubung antara <span className="font-bold text-slate-900">Alumni 2025</span> dan <span className="font-bold text-slate-900">Angkatan 2026</span>. Kita menyediakan database mentor agar adik kelas bisa bertanya langsung (via WhatsApp) tentang jalur masuk PTN/PTS dan kehidupan perkuliahan.
+                   </p>
+                 </div>
+              </div>
+
+              {/* Card 2: Context */}
+              <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-xl transition-all relative overflow-hidden group">
+                 <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-50 rounded-bl-[2rem] -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                 <div className="relative z-10">
+                   <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-4">
+                      <Heart size={24} />
+                   </div>
+                   <h4 className="font-bold text-lg text-slate-900 mb-2">Inisiatif Pribadi</h4>
+                   <p className="text-slate-500 text-sm leading-relaxed">
+                     Project ini adalah <span className="font-bold text-slate-900">inisiatif pribadi Gheren Ramandra Saputra</span>. Tujuannya sederhana: Menebar manfaat, membangun legacy positif, dan membantu adik-adik kelas kita menemukan jalannya.
+                   </p>
+                 </div>
+              </div>
+          </div>
+
+          {/* Voluntary Notice */}
+          <div className="bg-gradient-to-r from-slate-50 to-white p-6 rounded-[2rem] border border-slate-200 text-center relative overflow-hidden">
+            <div className="relative z-10">
+              <p className="text-slate-600 font-medium italic text-sm md:text-base">
+                "Program ini bersifat <span className="font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">100% SUKARELA</span>. Tidak ada paksaan. Namun, besar harapan saya agar teman-teman Angkatan 2025 bersedia meluangkan sedikit waktu untuk berkontribusi."
+              </p>
+              <div className="mt-3 text-[10px] font-black text-slate-400 tracking-widest uppercase">- Gheren</div>
+            </div>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
+            <a 
+              href="https://wa.me/6282114927981" 
+              target="_blank" 
+              rel="noreferrer"
+              className="flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-green-600 transition-all shadow-lg shadow-green-100 active:scale-95"
+            >
+              <MessageCircle size={20} /> Tanya Gheren
+            </a>
+            <button 
+              onClick={() => setCurrentSlide(1)} 
+              className="flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg active:scale-95"
+            >
+              Masuk ke Project <ArrowRight size={20} />
+            </button>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'hero',
       subtitle: "Connecting Generations",
       content: (
@@ -38,7 +112,7 @@ const App: React.FC = () => {
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 pt-6">
             <button 
-              onClick={() => setCurrentSlide(1)} 
+              onClick={() => setCurrentSlide(2)} 
               className="w-full md:w-auto bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold hover:bg-blue-600 transition-all flex items-center justify-center gap-3 shadow-2xl active:scale-95"
             >
               Lihat Overview <ArrowRight size={20} />
